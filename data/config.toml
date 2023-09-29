@@ -1,0 +1,7 @@
+delay = 7200
+backups_path = "./data/backups/"
+github-login = "token"
+
+[groups]
+"Grupo 1" = "https://example.com"
+"Grupo 2" = "https://example.com"
