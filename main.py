@@ -40,7 +40,7 @@ def create_backup(configuration: Config) -> None:
             url = url.replace("https://", f"https://{configuration.get_config('github-login')}@")
 
             # Create the date formatting for the clone-in folder
-            date = time.strftime("%d.%m.%Y.%H.%M.")
+            date = time.strftime("%Y.%m.%d.%H.%M.")
 
             # Clone the repository into the folder with the name of the group
             destination = os.path.join(backups_path, group_name, date)
@@ -52,7 +52,7 @@ def create_backup(configuration: Config) -> None:
             Repo.clone_from(url, destination)
             print(f"Cloned {group_name} into {backups_path}")
 
-        except:
+        except TypeError:
             print(f"Failed to clone {group_name} (Is the configuration correct?)")
             continue
 
